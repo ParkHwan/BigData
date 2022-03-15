@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>{{info.title}}</title>
+    <title>{{info1.Name}}</title>
     <style>
         @font-face {
             font-family: 'MaplestoryOTFBold';
@@ -17,6 +17,7 @@
             margin: 0 auto;
             height: 1250px;
             overflow-x: hidden;
+            background-color: #f5f5f5;
         }
         div{
 		    overflow: hidden;
@@ -61,17 +62,19 @@
             list-style: none;
             }
         .titleout {
-            text-align: center;
+            width : 100%;
+            text-align : center;
         }
         .titlein {
-            width : auto;
-            height : auto;
+            width : 500px;
+            height : 500px;
             padding : 20px;
+            display: inline-block;
         }
         .title_pic {
             border-radius : 10px;
-            width : 300px;
-            height : 300px;
+            width : 500px;
+            height : 500px;
             text-align: center;
         }
         .title_p {
@@ -80,15 +83,31 @@
             text-align: center;
             margin : 20px;
             }
+        .contentsout {
+            width : 100%;
+            text-align : center;
+            }
         .contentsin {
             margin : 20px;
-            padding : 10px;
+            padding : 20px;
+            background-color: white;
+            display: inline-block;
+            border-radius : 10px;
+            text-align : left;
+            width: 500px;
+            height: 250px;
         }
         .contents_p {
             font-size :25px;
         }
         p {
             margin : 10px;
+            }
+        .homebtn{
+            float: right;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            margin-right: 50px;
             }
     </style>
 </head>
@@ -101,6 +120,10 @@
             </li>
         </div>
     </header>
+    <div class="homebtn">
+        <a class="mainPage" href="/todaysPlay/location2/?pid={{info2.Category}}">이전으로</a>
+        <a class="mainPage" href="{% url 'main:main' %}">홈으로</a>
+    </div>
     <div class="titleout">
         <div class="titlein">
             <img class="title_pic" src={{info2.Image}}>
@@ -116,10 +139,5 @@
             <p class="contents_p" id="Fee2">이용금액 : {{info2.Fee}}</p>
         </div>
     </div>
-    <div>
-        <a class="mainPage" href="/todaysPlay/location2/?pid={{info2.Category}}">이전으로</a>
-        <a class="mainPage" href="{% url 'main:main' %}">홈으로</a>
-    </div>
-
 </body>
 </html>

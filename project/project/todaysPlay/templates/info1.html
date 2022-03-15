@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>{{info.title}}</title>
+    <title>{{info1.Name}}</title>
     <style>
         @font-face {
             font-family: 'MaplestoryOTFBold';
@@ -17,6 +17,7 @@
             margin: 0 auto;
             height: 1250px;
             overflow-x: hidden;
+            background-color: #f5f5f5;
         }
         div{
 		    overflow: hidden;
@@ -40,7 +41,10 @@
             height : 40px;
             position : relative;
         }
-        .mainPage, .logIn {
+        .homepagelink{
+            text-decoration : none;
+        }
+        .mainPage, .logIn  {
             text-decoration : none;
             font-size: 1.5rem;
             line-height : 1.7;
@@ -61,17 +65,19 @@
             list-style: none;
             }
         .titleout {
-            text-align: center;
+            width : 100%;
+            text-align : center;
         }
         .titlein {
-            width : auto;
-            height : auto;
+            width : 500px;
+            height : 500px;
             padding : 20px;
+            display: inline-block;
         }
         .title_pic {
             border-radius : 10px;
-            width : 300px;
-            height : 300px;
+            width : 500px;
+            height : 500px;
             text-align: center;
         }
         .title_p {
@@ -80,15 +86,31 @@
             text-align: center;
             margin : 20px;
             }
+        .contentsout {
+            width : 100%;
+            text-align : center;
+            }
         .contentsin {
             margin : 20px;
-            padding : 10px;
+            padding : 20px;
+            background-color: white;
+            display: inline-block;
+            border-radius : 10px;
+            text-align : left;
+            width: 600px;
+            height: 400px;
         }
         .contents_p {
             font-size :25px;
         }
         p {
             margin : 10px;
+            }
+        .homebtn{
+            float: right;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            margin-right: 50px;
             }
     </style>
 </head>
@@ -101,6 +123,10 @@
             </li>
         </div>
     </header>
+    <div class="homebtn">
+        <a class="mainPage" href="/todaysPlay/location1/?pid={{info1.Class}}">이전으로</a>
+        <a class="mainPage" href="{% url 'main:main' %}">홈으로</a>
+    </div>
     <div class="titleout">
         <div class="titlein">
             <img class="title_pic" src="{{info1.Image}}">
@@ -110,19 +136,16 @@
     <div class="contentsout">
         <div class="contentsin">
             <p class="contents_p" id="Station">도착역 : {{info1.Station}}</p>
-            <p class="contents_p" id="LineNumber">이용 지하철 노선 : {{info1.LineNumber}}</p>
+            <p class="contents_p" id="LineNumber">지하철 노선 : {{info1.LineNumber}}</p>
             <p class="contents_p" id="Address">주소 : {{info1.Address}}</p>
             <p class="contents_p" id="Telephone">전화번호 : {{info1.Telephone}}</p>
-            <p class="contents_p" id="Website">사이트 : {{info1.Website}}</p>
+            <p class="contents_p" id="Website">사이트 : <a class="homepagelink" href="{{info1.Website}}">{{info1.Website}}</a></p>
             <p class="contents_p" id="OpeningHours">개장시간 : {{info1.OpeningHours}}</p>
             <p class="contents_p" id="PayFree">유·무료 : {{info1.PayFree}}</p>
             <p class="contents_p" id="Fee1">요금 : {{info1.Fee}}</p>
             <p class="contents_p" id="Closed">휴관일 : {{info1.Closed}}</p>
         </div>
     </div>
-    <div>
-        <a class="mainPage" href="/todaysPlay/location1/?pid={{info1.Class}}">이전으로</a>
-        <a class="mainPage" href="{% url 'main:main' %}">홈으로</a>
-    </div>
+
 </body>
 </html>
